@@ -42,7 +42,7 @@ void ofApp::draw(){
     
      
     //draw location of vertex
-    glPointSize(2.0);
+    glPointSize(1.0);
     glEnable(GL_POINT_SMOOTH);
     mesh.drawVertices();
     
