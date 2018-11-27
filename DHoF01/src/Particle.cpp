@@ -17,7 +17,7 @@ void Particle::init(float xIn,float yIn, ofColor cIn){
 
 void Particle::update(){
     insr+=0.008;
-    theta=ofNoise(PosX*0.006,PosY*0.004,insr)*TWO_PI;
+    theta=ofNoise(PosX*0.0015,PosY*0.0010,insr)*TWO_PI;
     PosX+=2*cos(theta);
     PosY+=2*sin(theta);
     //cout<<PosX<<endl;
