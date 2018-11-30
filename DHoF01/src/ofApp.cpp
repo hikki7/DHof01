@@ -11,8 +11,8 @@ void ofApp::setup(){
     alpha=ofMap(alphaNoise,0,1,10,75);
     
     //store mesh color inform
-    for(Particle p:particles){
-        mesh.addColor(p.c);
+    for(Particle* p:particles){
+        mesh.addColor(p->c);
     }
 }
 
@@ -24,12 +24,12 @@ void ofApp::update(){
     mesh.clearVertices();
     //store mesh inform
     for(int i=0;i<num;i++){
-        particles[i].update();
-        particles[i].warp();
-        mesh.addVertex(ofVec3f(particles[i].PosX,particles[i].PosY,0));
+        particles[i]->update();
+        particles[i]->warp();
+        mesh.addVertex(ofVec3f(particles[i]->location.x,particles[i]->location.y,0));
     }
-
-
+    
+    
 }
 
 //--------------------------------------------------------------
@@ -40,7 +40,7 @@ void ofApp::draw(){
     ofSetColor(21, 21, 21, alpha);
     ofDrawRectangle(0, 0, ofGetWidth(), ofGetHeight());
     
-     
+    
     //draw location of vertex
     glPointSize(1.0);
     glEnable(GL_POINT_SMOOTH);
@@ -55,61 +55,8 @@ void ofApp::setParticle(){
         float y=ofRandom(ofGetHeight());
         float adj=ofMap(y, 0, ofGetHeight(),225, 0);
         ofColor c=ofColor(40,adj,255);
-        particles[i].init(x, y, c);
+        particles[i]=new Particle(x,y,c);
+        //particles[i].init(x, y, c);
     }
 }
 
-//--------------------------------------------------------------
-void ofApp::keyPressed(int key){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::keyReleased(int key){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::mouseMoved(int x, int y ){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::mouseDragged(int x, int y, int button){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::mousePressed(int x, int y, int button){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::mouseReleased(int x, int y, int button){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::mouseEntered(int x, int y){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::mouseExited(int x, int y){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::windowResized(int w, int h){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::gotMessage(ofMessage msg){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::dragEvent(ofDragInfo dragInfo){ 
-
-}

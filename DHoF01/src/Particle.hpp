@@ -1,10 +1,3 @@
-//
-//  Particle.hpp
-//  DHoF01
-//
-//  Created by 引田祐樹 on 2018/11/26.
-//
-
 #ifndef Particle_hpp
 #define Particle_hpp
 
@@ -14,11 +7,13 @@
 class Particle{
     
 public:
-    void init(float xIn,float yIn,ofColor cIn);
+    Particle(float xIn,float yIn,ofColor cIn);
     void update();
-    void warp();    
+    void warp();
     float theta,insr,PosX,PosY;
-    ofColor c;    
+    ofColor c;
+    ofVec2f location;
+    ofVec2f velocity;
 };
 
 #endif /* Particle_hpp */
